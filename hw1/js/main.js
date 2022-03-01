@@ -24,16 +24,16 @@ function randomNumber() {
   return Math.floor(Math.random() * 100) + 1;
 }
 
-const renderProduct = (title, price, img = `"https://picsum.photos/150?random=${randomNumber()}"`) => {
-  return `<div class="product-item">
-              <h3>${title}</h3>							
-              <div class="product__img"><img src=${img}></div>
-              <p>${price}</p>
-              <button class="buy-btn">Купить</button>
-          </div>`;
-};
+const renderProduct = (item, img = `"https://picsum.photos/150?random=${randomNumber()}"`) => 
+ `<div class="product-item">
+    <h3>${item.title}</h3>							
+    <div class="product__img"><img src=${img}></div>
+    <p>${item.price}</p>
+    <button class="buy-btn">Купить</button>
+  </div>`;
+
 const renderPage = document.querySelector(".products").innerHTML = products
-.map(item => renderProduct(item.title, item.price)).join("");
+.map(item => renderProduct(item)).join("");
 console.log(productsList);
 
 renderPage(products);
