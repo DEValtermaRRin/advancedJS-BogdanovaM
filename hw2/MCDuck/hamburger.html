@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hamburger</title>
+</head>
+
+<body>
+  <script>
+
+
+    const TOP = [
+      { title: 'seasoning', price: 15, calories: 0 },
+      { title: 'mayonnaise', price: 20, calories: 5 },
+    ];
+
+    class Hamburger {
+      constructor(size, stuffing, topping = 0) {
+        this.stuffing = stuffing;
+        this.topping = this.addTopping(topping);
+        this.getStuffing(stuffing);
+        this.size = size;
+        this.getSize(size);
+        this.calculatePrice();
+        this.calculateCalories();
+      }
+      // Получить список добавок
+      getToppings() {
+        TOP.forEach(item =>
+          console.log(`Topping "${item.title}" has price ${item.price} rub. Calories (${item.calories})`));
+      }
+      // Добавить добавку 
+      addTopping(topping) {
+        let addedTop = TOP.find(item => item.title === topping);
+        if (!addedTop) {
+          console.log('No such topping');
+          addedTop = 0;
+        }
+        return addedTop;
+      }
+      // Убрать добавку
+      removeTopping() {
+       // не поняла как реализовать удаление топпингов
+      }
+      // Узнать размер гамбургера 
+      getSize(size) {
+        switch (size) {
+          case 'small':
+            this.price = 50;
+            this.calories = 20;
+            break;
+          case 'big':
+            this.price = 100;
+            this.calories = 40;
+            break;
+          default:
+            console.log(`No such sizes. You can choose only "big" or "small"`);
+        }
+      }
+      // Узнать начинку гамбургера
+      getStuffing(stuffingTitle) {
+        const staff = [
+          { title: 'cheese', price: 10, calories: 20 },
+          { title: 'salat', price: 20, calories: 5 },
+          { title: 'potato', price: 15, calories: 10 },
+        ];
+        this.stuffing = staff.find(item => item.title === stuffingTitle);
+        if (!this.stuffing) console.log('No such stuff! Please, try again');
+        return this.stuffing;
+      }
+      // Узнать цену 
+      calculatePrice() {
+        if (this.topping == 0) {
+          return this.price += this.stuffing.price;
+        } else {
+          return this.price += (this.stuffing.price + this.topping.price);
+        }
+        
+        
+      }
+      // Узнать калорийность 
+      calculateCalories() {
+        if (this.topping == 0) {
+          return this.calories += this.stuffing.calories;
+        } else {
+          return this.calories += (this.stuffing.calories + this.topping.calories);
+        }
+      }
+
+      info() {
+        console.log(`Your order: Hamburger - Size "${this.size}", 
+Stuffing "${this.stuffing.title}", Topping "${this.topping.title}". 
+Total price = ${this.price} rub. (${this.calories} calories)`);
+      }
+    }
+
+
+    const burger = new Hamburger('small', 'cheese');
+    console.log(burger);
+    burger.info();
+    const maxiBurger = new Hamburger('big', 'potato', 'mayonnaise');
+    maxiBurger.info();
+    maxiBurger.removeTopping();
+    maxiBurger.info();
+
+
+  </script>
+</body>
+
+</html>
