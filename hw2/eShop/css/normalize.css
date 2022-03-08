@@ -228,6 +228,7 @@ button:-moz-focusring,
 
 fieldset {
   padding: 0.35em 0.75em 0.625em;
+	border: none;
 }
 
 /**
@@ -244,6 +245,7 @@ legend {
   max-width: 100%; /* 1 */
   padding: 0; /* 3 */
   white-space: normal; /* 1 */
+
 }
 
 /**
@@ -270,7 +272,7 @@ textarea {
 [type="checkbox"],
 [type="radio"] {
   box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
+  padding: 5px; /* 2 */
 }
 
 /**
