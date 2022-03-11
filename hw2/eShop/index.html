@@ -1,26 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Интернет-магазин</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/style.css">
+	<meta charset="UTF-8">
+	<title>Интернет-магазин</title>
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <header>
-        <div class="logo">E-shop</div>
-        <button class="btn-cart" type="button">Корзина</button>
-				<div class="cart hidden">
-					<div class="cart__content content"></div>
-				</div>
-    </header>
-    <main>
-        <div class="products">
-            
-        </div>
-    </main>
-	
-   
-    <script src="js/main.js"></script>
+	<header>
+		<div class="logo">E-shop</div>
+		<button class="btn-cart" type="button">Корзина</button>
+		<div class="cart hidden">
+			<div class="cart__content content"></div>
+		</div>
+	</header>
+	<main>
+		<div class="products">
+
+		</div>
+		<form class="form" action="#" method="get">
+			<fieldset class="form__fieldset">
+				<legend class="form__legend">Форма обратной связи</legend>
+				<p class="error-message"></p>
+				<label for="name"> Имя:
+					<input class="form__control" type="text" name="" id="name" placeholder="Имя Фамилия">					
+				</label>
+				<label for="tel"> Телефон:
+					<input class="form__control" type="tel" name="" id="tel" placeholder="+7(000)000-0000">				
+				</label>
+				<label for="email"> Email:
+					<input class="form__control" type="email" name="" id="email" placeholder="mymail@mail.ru">				
+				</label>
+				<label for="text"> Сообщение:
+					<textarea class="form__control" name="" id="text" cols="30" rows="10" placeholder="Введите Ваше сообщение"></textarea>				
+				</label>
+				<button class="form__btn" type="submit">Отправить</button>
+			</fieldset>
+		</form>
+	</main>
+
+
+	<script src="js/main.js"></script>
+	<script src="js/form.js"></script>
 </body>
+
 </html>

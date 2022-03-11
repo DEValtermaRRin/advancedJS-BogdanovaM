@@ -95,12 +95,9 @@ class Cart {
 		this.container = container;	
     this.cartList = [];
     
-		this.fetchProducts().then(data => {
-			console.log(data);
-			console.log(data.contents);
+		this.fetchProducts().then(data => {		
 			this.products = data.contents;
-			this.renderCart();
-			
+			this.renderCart();			
 		})
 		this.watchClickButtoncart();
   }
